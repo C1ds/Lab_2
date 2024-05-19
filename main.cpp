@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "Producto.h"
 #include "Cliente.h"
@@ -6,9 +5,9 @@
 
 int main()
 {
-    LectorDeArchivos lector= LectorDeArchivos();
-    lector.leerArchCliente;
-    std::cout<<"enchiladas";
+    LectorDeArchivos lector;
+    lector.leerArchCliente();
+    std::cout << "enchiladas" << std::endl;
 
     return 0;
 }

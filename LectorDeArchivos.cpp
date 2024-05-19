@@ -1,16 +1,22 @@
 #include <iostream>
 #include <string>
 #include "LectorDeArchivos.h"
+#include "Fila.h"
 #include <fstream>
 #include <sstream>
 #include <vector>
 using namespace std;
 LectorDeArchivos::LectorDeArchivos(){
 }
-void leerArchCliente(){
+void LectorDeArchivos::leerArchCliente(){
     string nombreArchivo = "Clientes.txt";
     ifstream archivo(nombreArchivo.c_str());
     string linea;
+    //Crear Filas
+    Fila fNormal;
+    Fila fTerEdad;
+    Fila fDiscap;
+    Fila fEmbarazada;
     
     if (!archivo.is_open()) {
         cout << "Error al abrir el archivo." << endl;
@@ -23,10 +29,17 @@ void leerArchCliente(){
         while (getline(ss, parte, ',')) {
             partes.push_back(parte);
         }
-        cout << partes[1] << endl;
         if(partes[1]=="0"){
-            cout << partes[0] << endl;
+            fNormal.addClient(Cliente(partes[0],partes[1]));
+        }if(partes[1]=="1"){
+            fTerEdad.addClient(Cliente(partes[0],partes[1]));
         }
+        if(partes[1]=="2"){
+            fDiscap.addClient(Cliente(partes[0],partes[1]));
+        }if(partes[1]=="3"){
+            fEmbarazada.addClient(Cliente(partes[0],partes[1]));
+        }
+        archivo.close();
     }
 }
 void leerArchProducto(){
