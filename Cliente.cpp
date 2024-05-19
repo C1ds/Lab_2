@@ -1,10 +1,14 @@
-#include <iostream>
 #include "Cliente.h"
-#include<string>  
 using namespace std;
-Cliente::Cliente(string nombre,int tipo){
-    this-> nombre=nombre;
-    this-> tipo=tipo;
-    // 0normal 1tercera edad 2discapacidad 3embarazadas
+
+Cliente::Cliente(std::string nombre, string tipo) : nombre(nombre), tipo(tipo) {
+    // Constructor
 }
-int Cliente::getTipo(){return tipo;} 
+
+std::string Cliente::getTipo() {
+    return tipo; // 0normal 1tercera edad 2discapacidad 3embarazadas
+}
+
+std::string Cliente::getNombre() {
+    return nombre;
+}

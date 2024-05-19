@@ -1,13 +1,19 @@
-#include <iostream>
 #include "Fila.h"
-#include<string>
-#include <queue>
-Fila::Fila(){
-      std::queue<Cliente> fila;
+
+Fila::Fila() {
+    // El constructor no necesita hacer nada especial
 }
 
-addClient(Cliente c){fila.push(c)};
-string nextClient(){
-    fila.front();
-    fila.pop();
-};
+void Fila::addClient(Cliente c) {
+    fila.push(c);
+}
+
+Cliente Fila::nextClient() {
+    if (!fila.empty()) {
+        Cliente next = fila.front();
+        fila.pop();
+        return next;
+    } else {
+        throw std::out_of_range("No hay clientes en la fila");
+    }
+}

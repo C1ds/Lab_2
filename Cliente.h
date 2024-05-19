@@ -1,10 +1,13 @@
 #include <iostream>
+#include <string>
 using namespace std;
-class Cliente{
-    private:
-        string  nombre;
-        int tipo;
-    public:
-        Cliente(string nombre,int tipo);
-        int getTipo();
+
+class Cliente {
+private:
+    string nombre;
+    string tipo; // 0normal 1tercera edad 2discapacidad 3embarazadas
+public:
+    Cliente(string nombre, string tipo);
+    string getTipo();
+    string getNombre();  // Añadido un método para obtener el nombre del cliente
 };

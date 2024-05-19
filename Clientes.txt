@@ -1,0 +1,4 @@
+edison,0
+juancha,1
+pepe,2
+boric,3
