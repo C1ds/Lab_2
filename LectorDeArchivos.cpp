@@ -39,8 +39,9 @@ void LectorDeArchivos::leerArchCliente(){
         }if(partes[1]=="3"){
             fEmbarazada.addClient(Cliente(partes[0],partes[1]));
         }
-        archivo.close();
+        
     }
+    archivo.close();
 }
 void leerArchProducto(){
     
