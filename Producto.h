@@ -4,8 +4,8 @@ using namespace std;
 
 class Producto{
     private:
-        string categoria,subCategoria, id;
+        string nombre,categoria,subCategoria, id;
         int precio;
     public:
-        Producto(string categoria, string subCategoria, int precio, string id);
+        Producto(string nombre,string categoria, string subCategoria, int precio, string id);
 };

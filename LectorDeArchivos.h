@@ -4,6 +4,7 @@ class LectorDeArchivos{
     private:
     public:
         LectorDeArchivos();
-        void leerArchCliente();
         void leerArchProducto();
+        void leerArchCliente();
+        
 };
