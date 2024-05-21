@@ -8,6 +8,25 @@
 using namespace std;
 LectorDeArchivos::LectorDeArchivos(){
 }
+void LectorDeArchivos::leerArchProducto(){
+    string nombreArchivo = "Productos.txt";
+    ifstream archivo(nombreArchivo.c_str());
+    string linea;
+    if (!archivo.is_open()) {
+        cout << "Error al abrir el archivo." << endl;
+        return;
+    }
+    while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string parte;
+        vector<string> partes;
+        while (getline(ss, parte, ',')) {
+            partes.push_back(parte);
+        }
+        cout << "Crear Bodega para terminar esto" << endl;
+        
+    }archivo.close();
+}
 void LectorDeArchivos::leerArchCliente(){
     string nombreArchivo = "Clientes.txt";
     ifstream archivo(nombreArchivo.c_str());
@@ -43,6 +62,4 @@ void LectorDeArchivos::leerArchCliente(){
     }
     archivo.close();
 }
-void leerArchProducto(){
-    
-}
+
