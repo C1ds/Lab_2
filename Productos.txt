@@ -1,2 +1,0 @@
-triton,Dulce,Galleta,1500,1
-Helados De 100,Dulce,Helado,500
