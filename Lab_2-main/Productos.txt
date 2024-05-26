@@ -1,4 +1,0 @@
-triton,Dulce,Galleta,1500,1
-Danky,Dulce,Helado,990,500
-Snack Mix,Salado,Snacks,1500,453
-Kuky,Dulce,Galleta,1200,432
