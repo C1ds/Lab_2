@@ -1,27 +1,29 @@
 #include <iostream>
 #include "Bodega.h"
+#include "ListaDeFilas.h"
 using namespace std;
 
 /**
  * @class Clase LectorDeArchivos
 */
-class LectorDeArchivos{
-    private:
-    public:
-        /**
+class LectorDeArchivos
+{
+private:
+public:
+		/**
          * Constructor de la Clase LectorDeArchivos
         */
-        LectorDeArchivos();
+  LectorDeArchivos ();
 
-        /**
+		/**
          * Lector de Archivo Productos
         */
-        Bodega* leerArchProducto(Bodega* bodega);
+  Bodega *leerArchProducto (Bodega * bodega);
 
-        /**
+		/**
          * Lector de Archivo Clientes
         */
-        void leerArchCliente();
-        
-        ~LectorDeArchivos();
+  ListaDeFilas leerArchCliente ();
+
+   ~LectorDeArchivos ();
 };

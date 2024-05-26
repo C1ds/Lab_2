@@ -11,6 +11,7 @@ using namespace std;
 class Fila {
 private:
     std::queue<Cliente> fila;
+    int cant;
 public:
     /**
      * Constructor de la Clase Fila
@@ -27,4 +28,10 @@ public:
      * Se retira el Cliente actual y se continua con el siguiente
     */
     Cliente nextClient();
+    
+    /**
+     * retorna la cantidad de personas en la fila
+    */
+    int getCant();
+
 };

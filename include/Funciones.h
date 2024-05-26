@@ -9,6 +9,7 @@ using namespace std;
 */
 class Funciones {
 private:
+    
 
 public:
     /**
