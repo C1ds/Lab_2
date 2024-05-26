@@ -1,7 +1,7 @@
 #include "../include/Fila.h"
 
 Fila::Fila() {
-    // El constructor no necesita hacer nada especial
+    int cant = 0;
 }
 
 void Fila::addClient(Cliente c) {
@@ -17,3 +17,8 @@ Cliente Fila::nextClient() {
         throw std::out_of_range("No hay clientes en la fila");
     }
 }
+
+int Fila::getCant(){
+    return cant;}
+
+

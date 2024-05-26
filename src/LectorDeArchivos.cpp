@@ -2,6 +2,7 @@
 #include <string>
 #include "../include/LectorDeArchivos.h"
 #include "../include/Fila.h"
+#include "../include/ListaDeFilas.h"
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -34,7 +35,7 @@ Bodega* LectorDeArchivos::leerArchProducto(Bodega* bodega){
     return bodega;
 }
 
-void LectorDeArchivos::leerArchCliente(){
+ListaDeFilas LectorDeArchivos::leerArchCliente(){
     string nombreArchivo = "Clientes.txt";
     ifstream archivo(nombreArchivo.c_str());
     string linea;
@@ -46,7 +47,7 @@ void LectorDeArchivos::leerArchCliente(){
     
     if (!archivo.is_open()) {
         cout << "Error al abrir el archivo." << endl;
-        return;
+        
     }
     while (getline(archivo, linea)) {
         stringstream ss(linea);
@@ -67,7 +68,9 @@ void LectorDeArchivos::leerArchCliente(){
         }
         
     }
+    ListaDeFilas* lista = new ListaDeFilas(fNormal,fTerEdad,fDiscap,fEmbarazada);
     archivo.close();
+    return *lista;
 }
 
 LectorDeArchivos::~LectorDeArchivos() {}

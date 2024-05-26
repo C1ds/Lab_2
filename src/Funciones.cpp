@@ -1,4 +1,5 @@
 #include "../include/Funciones.h"
+#include "Fila.h"
 using namespace std;
 
 Funciones::Funciones() {}
