@@ -1,11 +1,13 @@
-Lab_2
-Taller laboratorio 2, Estructura de Datos Carlos Andres Cid Angel, 21.224.679-4, carlos.cid@alumnos.ucn.cl Edison Hariam Olivares Guzman, 20.936.399-2, edison.olivares@alumnos.ucn.cl
+# Lab_2
+Taller laboratorio 2, Estructura de Datos 
+Carlos Andres Cid Angel, 21.224.679-4, carlos.cid@alumnos.ucn.cl 
+Edison Hariam Olivares Guzman, 20.936.399-2, edison.olivares@alumnos.ucn.cl
 
-Documentacion
+# Documentacion
 En el codigo de entrada de cada funcion
 
-Objetos:
------------------------------Productos----------------------------------
+# Objetos:
+# -----------------------------Productos----------------------------------
 triton,dulce,galleta,1500,167,43
 kuky,dulce,galleta,1200,432,25
 oreo,dulce,galleta,1000,732,30
@@ -37,7 +39,7 @@ shampooanticaspa,cuidado,cuidadocapilar,20,173,1
 acondicionador,cuidado,cuidadocapilar,42,283,6
 tintecabello,cuidado,cuidadocapilar,89,332,10
 
------------------------------Clentes----------------------------------
+# -----------------------------Clentes----------------------------------
 edison,0
 juancha,1
 pepe,2
