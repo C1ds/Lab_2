@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <queue> 
-#include "ListaDeFilas.h"
-#include "Fila.h"
-#include "Cliente.h"
+#include "../include/ListaDeFilas.h"
+#include "../include/Fila.h"
+#include "../include/Cliente.h"
 
 using namespace std;
 
