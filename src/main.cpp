@@ -33,7 +33,9 @@ int main() {
         *opcion = funciones -> validarOpcion(*data);
 
         switch (*opcion) {
-        case 1:{break;}
+        case 1:{
+            bodega -> imprimirCategorias();
+            break;}
         case 2:{
             cout << "El/La cliente: "+ actual.getNombre()+ " sera atendido ahora" << endl;
             //proceder a venta de cliente
@@ -83,9 +85,8 @@ int main() {
 
     
     //Pruebas de Bodega
-    bodega -> imprimirCategorias();
-    bodega -> imprimirSubCategorias("Pepe");
-    bodega -> imprimirProductos("Dulce","Galleta");
+    //bodega -> imprimirSubCategorias("medicamentos");
+    //bodega -> imprimirProductos("dulce","galleta");
 
 
     delete lector;
