@@ -33,5 +33,9 @@ public:
      * retorna la cantidad de personas en la fila
     */
     int getCant();
+        /**
+     * retorna la fila
+    */
+    queue<Cliente> getFila();
 
 };
