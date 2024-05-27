@@ -1,4 +1,12 @@
-triton,Dulce,Galleta,1500,1
-Danky,Dulce,Helado,990,500
-Snack Mix,Salado,Snacks,1500,453
-Kuky,Dulce,Galleta,1200,432
+triton,dulce,galleta,1500,167,43
+kuky,dulce,galleta,1200,432,25
+oreo,dulce,galleta,1000,732,30
+danky,dulce,helado,990,500,24
+heladino,dulce,helado,100,256,40
+conito,dulce,helado,600,925,34
+aspirina,medicamentos,analgesicos,44,1,3
+ibuprofeno,medicamentos,analgesicos,78,2,7
+paracetamol,medicamentos,analgesicos,21,3,8
+vitaminasa,medicamentos,vitaminas,58,1,3
+vitaminasb,medicamentos,vitaminas,92,2,2
+vitaminasc,medicamentos,vitaminas,39,3,10
