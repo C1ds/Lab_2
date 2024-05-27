@@ -1,6 +1,6 @@
 # Lab_2
 Taller laboratorio 2, Estructura de Datos 
-Carlos Andres Cid Angel, 21.224.679-4, carlos.cid@alumnos.ucn.cl\n
+Carlos Andres Cid Angel, 21.224.679-4, carlos.cid@alumnos.ucn.cl
 Edison Hariam Olivares Guzman, 20.936.399-2, edison.olivares@alumnos.ucn.cl
 
 # Documentacion
