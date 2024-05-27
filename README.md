@@ -39,7 +39,7 @@ shampooanticaspa,cuidado,cuidadocapilar,20,173,1
 acondicionador,cuidado,cuidadocapilar,42,283,6
 tintecabello,cuidado,cuidadocapilar,89,332,10
 
-# -----------------------------Clentes----------------------------------
+# -----------------------------Clientes----------------------------------
 edison,0
 juancha,1
 pepe,2
