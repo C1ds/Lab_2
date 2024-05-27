@@ -6,7 +6,7 @@ Funciones::Funciones() {}
 
 void Funciones::imprimirMenu() {
     cout << "------Menu Usuario------" << endl;
-    cout << "[1] Entregar Numeros" << endl;
+    cout << "[1] Imprimir Categorias de Productos" << endl;
     cout << "[2] Llamar al siguiente Cliente" << endl;
     cout << "[3] Ingresar Cliente a la Cola" << endl;
     cout << "[4] Agregar Productos a Bodega" << endl;
