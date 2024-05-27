@@ -29,7 +29,8 @@ Bodega* LectorDeArchivos::leerArchProducto(Bodega* bodega){
         }
         bodega->addCategoria(partes[1]);
         bodega->addSubCategoria(partes[1],partes[2]);
-        bodega->addProducto(partes[1],partes[2],Producto(partes[0],stoi(partes[3]),partes[4]));
+        Producto* p = new Producto(partes[0],stoi(partes[3]),partes[4],stoi(partes[5]));
+        bodega->addProducto(partes[1],partes[2],p);
     }
     archivo.close();
     return bodega;

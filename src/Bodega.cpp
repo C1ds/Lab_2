@@ -1,101 +1,179 @@
 #include "../include/Bodega.h"
+#include <iostream>
 using namespace std;
 
-Bodega::Bodega() {}
+Bodega::Bodega() {
+    this -> categorias = nullptr;
+}
 
 bool Bodega::addCategoria(const string& categoria) {
-    for (auto& cat : categorias) {
-        if (cat.first == categoria) {
+    Categoria* newCategoria = new Categoria(categoria);
+    
+    if (categorias == nullptr) {
+        categorias = newCategoria;
+        return true;
+    }
+
+    Categoria* aux = categorias;
+    while (aux != nullptr) {
+        if (aux->getNombre() == newCategoria->getNombre()) {
+            delete newCategoria;
             return false;
         }
+        if (aux->getSiguiente() == nullptr) {
+            break;
+        }
+        aux = aux->getSiguiente();
     }
-    categorias.push_back(make_pair(categoria, vector<pair<string, vector<Producto>>>()));
+    
+    aux->setSiguiente(newCategoria);
     return true;
 }
 
 bool Bodega::addSubCategoria(const string& categoria, const string& subcategoria) {
-    for (auto& cat : categorias) {
-        if (cat.first == categoria) {
-            cat.second.push_back(make_pair(subcategoria, vector<Producto>()));
-            return true;
-        }
-    }
-    return false;
-}
-
-bool Bodega::addProducto(const string& categoria, const string& subcategoria, Producto producto) {
-    for (auto& cat : categorias) {
-        if (cat.first == categoria) {
-            for (auto& subcat : cat.second) {
-                if (subcat.first == subcategoria) {
-                    subcat.second.push_back(producto);
-                    return true;
+    SubCategoria* newSubcategoria = nullptr;
+    Categoria* aux = categorias;
+    SubCategoria* aux2 = nullptr;
+    
+    while (aux != nullptr) {
+        if (aux->getNombre() == categoria) {
+            newSubcategoria = new SubCategoria(subcategoria);
+            if (aux->getSubcategoria() == nullptr) {
+                aux->setSubcategoria(newSubcategoria);
+                return true;
+            }
+            aux2 = aux->getSubcategoria();
+            
+            while (aux2 != nullptr) {
+                if (aux2->getNombre() == subcategoria) {
+                    delete newSubcategoria;
+                    return false;
                 }
+                if (aux2->getSiguiente() == nullptr) {
+                   break;
+                }
+                aux2 = aux2->getSiguiente();
             }
         }
+        aux = aux->getSiguiente();
     }
-    return false;
+    aux2->setSiguiente(newSubcategoria);
+    return true;
 }
 
-vector<Producto> Bodega::getProductos(const string& categoria, const string& subcategoria) {
-    for (auto& cat : categorias) {
-        if (cat.first == categoria) {
-            for (auto& subcat : cat.second) {
-                if (subcat.first == subcategoria) {
-                    return subcat.second;
+bool Bodega::addProducto(const string& categoria, const string& subcategoria, Producto* producto) {
+    Categoria* aux = categorias;
+    Producto* aux3 = nullptr;
+
+    while (aux != nullptr) {
+        if (aux->getNombre() == categoria) {
+            SubCategoria* aux2 = aux->getSubcategoria();
+            while(aux2 != nullptr) {
+                if (aux2->getNombre() == subcategoria) {
+                    if (aux2->getProducto() == nullptr) {
+                        aux2->setProducto(producto);
+                        delete aux3;
+                        return true;
+                    }
+                    aux3 = aux2->getProducto();
+                    while (aux3 != nullptr) {
+                        if (aux3->getNombre() == producto->getNombre()) {
+                            delete aux3;
+                            return false;
+                        }
+                        if (aux3->getSiguiente() == nullptr) {
+                            break;
+                        }
+                        aux3 = aux3->getSiguiente();
+                    }
                 }
+                aux2 = aux2->getSiguiente();
             }
         }
+        aux = aux->getSiguiente();
     }
-    return vector<Producto>();
+    aux3->setSiguiente(producto);
+    return true;
 }
 
 void Bodega::imprimirCategorias() {
-    int i;
+    int i = 0;
     cout << "------Categorias------" << endl;
-    for (i = 0; i < categorias.size(); i++) {
-        cout << (i+1) << ". " << categorias[i].first << endl;
+
+    if (categorias == nullptr) {
+        cout << "No existen Categorias" << endl;
+        return;
     }
-    if (i == 0) cout << "No existen Categorias" << endl;
+    Categoria* aux = categorias;
+    while (aux != nullptr) {
+        cout << (i+1) << ". " << aux->getNombre() << endl;
+        aux = aux->getSiguiente();
+        i++;
+    }
 }
 
 void Bodega::imprimirSubCategorias(const string& categoria) {
-    int i; int j = 0;
     cout << "------SubCategorias-" << categoria << "------" << endl;
-    for (i = 0; i < categorias.size(); i++) {
-        if (categorias[i].first == categoria) {
-            for (j = 0; j < categorias[i].second.size(); j++) {
-                cout << (j+1) << ". " << categorias[i].second[j].first << endl;
+    
+    if (categorias == nullptr) {
+        cout << "No existen Categorias" << endl;
+        return;
+    }
+    Categoria* aux = categorias;
+    SubCategoria* aux2 = nullptr;
+
+    while (aux != nullptr) {
+        if (aux->getNombre() == categoria) {
+            aux2 = aux->getSubcategoria();
+            if (aux2 == nullptr) {
+               cout << "No existen SubCategorias en " << categoria << endl;
+               return;
+            }
+
+            int i = 0;
+            while (aux2 != nullptr) {
+                cout << (i+1) << ". " << aux2->getNombre() << endl;
+                aux2 = aux2->getSiguiente();
+                i++;
             }
         }
+        aux = aux->getSiguiente();
     }
-    if (i == categorias.size()) cout << "No existe la Categoria: " << categoria  << endl;
-    else if (j == 0) cout << "No existen SubCategorias en " << categoria << endl;
+
 }
 
 void Bodega::imprimirProductos(const string& categoria, const string& subcategoria) {
-    int i = 0; int j = 0; 
-    bool found = false;
-    for (i = 0; i < categorias.size(); i++) {
-        if (categorias[i].first == categoria) {
-            for (j = 0; j < categorias[i].second.size(); j++) {
-                if (categorias[i].second[j].first == subcategoria) {
-                    found = true;
-                    break;
+    if (categorias == nullptr) {
+        cout << "No existen Categorias" << endl;
+        return;
+    }
+    cout << "------Productos en " << categoria << " - " << subcategoria << "------" << endl;
+    Categoria* aux = categorias;
+    SubCategoria* aux2 = nullptr;
+    Producto* aux3 = nullptr;
+
+    while (aux != nullptr) {
+        if (aux->getNombre() == categoria) {
+            aux2 = aux->getSubcategoria();
+            while (aux2 != nullptr) {
+                if (aux2->getNombre() == subcategoria) {
+                    if (aux2->getProducto() == nullptr) {
+                        cout << "No se encontraron Productos en " << subcategoria << endl;
+                        return;
+                    }
+                    int i = 0;
+                    aux3 = aux2->getProducto();
+                    while (aux3 != nullptr) {
+                        cout << (i+1) << ". " << aux3->getNombre() << endl;
+                        aux3 = aux3->getSiguiente();
+                        i++;
+                    }
                 }
+                aux2 = aux2->getSiguiente();
             }
-            if (found) {break;}
         }
-    }
-    if (found) {
-        cout << "Productos: " << endl;
-        for (int x = 0; x < categorias[i].second[j].second.size(); x++) {
-            cout << (x+1) << ". " << categorias[i].second[j].second[x].getNombre() << endl;
-        }
-    }
-    else {
-        cout << "No se encontraron Productos en " << subcategoria << endl;
-    }
+        aux = aux->getSiguiente();
+    }  
 }
 
 Bodega::~Bodega() {}
