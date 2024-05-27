@@ -1,4 +1,5 @@
 #include "../include/Fila.h"
+#include <queue>
 
 Fila::Fila() {
     int cant = 0;
@@ -6,6 +7,7 @@ Fila::Fila() {
 
 void Fila::addClient(Cliente c) {
     fila.push(c);
+    cant=cant+1;
 }
 
 Cliente Fila::nextClient() {
@@ -20,5 +22,8 @@ Cliente Fila::nextClient() {
 
 int Fila::getCant(){
     return cant;}
+queue<Cliente> Fila::getFila(){
+    return fila;}
+
 
 

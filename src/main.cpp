@@ -4,6 +4,8 @@
 #include "../include/LectorDeArchivos.h"
 #include "../include/Funciones.h"
 #include "../include/ListaDeFilas.h"
+#include "../include/EscribirArch.h"
+
 
 using namespace std; 
 
@@ -84,6 +86,7 @@ int main() {
     bodega -> imprimirCategorias();
     bodega -> imprimirSubCategorias("Pepe");
     bodega -> imprimirProductos("Dulce","Galleta");
+
 
     delete lector;
     delete funciones;
